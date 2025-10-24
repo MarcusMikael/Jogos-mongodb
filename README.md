@@ -86,7 +86,7 @@ A interface foi construída com **Java Swing**, priorizando clareza e simplicida
 **Exemplo:**  
 TelaCatalagoDeJogos exibindo o catálogo com os registros armazenados no MongoDB.
 
----
+---<img width="779" height="573" alt="TelaCatalagoDeJogos" src="https://github.com/user-attachments/assets/e0a17b09-0d39-4b64-b687-3602f0d56a1a" />
 
 ## 💾 Conexão com o Banco (MongoDB Atlas)
 
@@ -115,8 +115,10 @@ Rode o arquivo TelaCatalogoJogos.java
 
 A interface gráfica será exibida e você poderá cadastrar, listar, editar e excluir jogos.
 
-🎥 Vídeo de Apresentação
-🔗 Assista ao vídeo aqui
+## 🎥 Vídeo de Apresentação    
+
+🔗 [Assista ao vídeo aqui](https://youtu.be/YCMEXK4VO1k)  
 
 👨‍💻 Autor
+
 Marcus Mikael Rodrigues Vieira

@@ -1,6 +1,6 @@
 # 🎮 Catálogo de Jogos
 
-Sistema desenvolvido em **Java** utilizando o padrão **MVC (Model-View-Controller)** e integração com o **MongoDB Atlas**, para realizar operações de **CRUD (Create, Read, Update, Delete)** em um catálogo de jogos.  
+Sistema desenvolvido em **Java** utilizando o padrão **MVC (Model-View-Controller)** e integração com o **MongoDB Atlas** e **Redis Cloud**, para realizar operações de **CRUD (Create, Read, Update, Delete)**  e otimizar o desempenho com cache em um catálogo de jogos.  
 O projeto foi implementado no **NetBeans**, com interface gráfica desenvolvida em **Swing (JFrame)**.
 
 ---
@@ -26,8 +26,8 @@ O sistema oferece uma interface intuitiva que permite ao usuário interagir com 
 |--------|-------------|
 | Linguagem | Java |
 | IDE | Apache NetBeans |
-| Banco de Dados | MongoDB Atlas |
-| Biblioteca de Acesso | MongoDB Java Driver |
+| Banco de Cache | Redis Cloud |
+| Bibliotecas | MongoDB Java Driver, Jedis (Redis), Gson |
 | Arquitetura | MVC (Model, View, Controller) |
 | Interface Gráfica | Java Swing (JFrame, JButton, JTable, JTextField) |
 
@@ -42,6 +42,7 @@ O sistema oferece uma interface intuitiva que permite ao usuário interagir com 
 ┃ ┣ 📂 dao
 ┃ ┃ ┣ 📜 JogoDAO.java
 ┃ ┃ ┗ 📜 MongoDBConnection.java
+┃ ┃ ┗ 📜 RedisConnection.java
 ┃ ┣ 📂 model
 ┃ ┃ ┗ 📜 Jogo.java
 ┃ ┣ 📂 view
@@ -86,7 +87,7 @@ A interface foi construída com **Java Swing**, priorizando clareza e simplicida
 **Exemplo:**  
 TelaCatalagoDeJogos exibindo o catálogo com os registros armazenados no MongoDB.
 
----<img width="779" height="573" alt="TelaCatalagoDeJogos" src="https://github.com/user-attachments/assets/e0a17b09-0d39-4b64-b687-3602f0d56a1a" />
+<img width="779" height="573" alt="TelaCatalagoDeJogos" src="https://github.com/user-attachments/assets/e0a17b09-0d39-4b64-b687-3602f0d56a1a" />
 
 ## 💾 Conexão com o Banco (MongoDB Atlas)
 
@@ -97,9 +98,8 @@ String uri = "mongodb+srv://USUARIO:SENHA@SEU_CLUSTER.mongodb.net/?retryWrites=t
 ```
 🚀 Como Executar o Projeto
 1. Clone o repositório
-bash
-Copiar código
 git clone https://github.com/MarcusMikael/Jogos-mongodb.git
+
 2. Abra o projeto no NetBeans
 Vá em File → Open Project
 
@@ -109,6 +109,7 @@ Selecione a pasta CatalagoDeJogos
 Certifique-se de ter um cluster ativo no MongoDB Atlas
 
 Atualize a URI de conexão na classe MongoDBConnection.java
+Redis Cloud: insira host, porta e senha em RedisConnection.java
 
 4. Execute a aplicação
 Rode o arquivo TelaCatalogoJogos.java

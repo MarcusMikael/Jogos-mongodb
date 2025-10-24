@@ -10,6 +10,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 
 public class JogoDAO {
+// Conexão com o banco
 
     private final MongoCollection<Document> collection;
     private final MongoDBConnection conn;
@@ -30,7 +31,7 @@ public class JogoDAO {
 
             collection.insertOne(doc);
 
-            if (doc.containsKey("_id")) {
+            if (doc.containsKey("_id")) { // pega o ID gerado pelo Mongo e adiciona ao objeto Jogo.
                 jogo.setId(doc.getObjectId("_id").toHexString());
             }
 
@@ -42,7 +43,7 @@ public class JogoDAO {
 
     public Jogo buscar(String id) {
         try {
-            Document doc = collection.find(Filters.eq("_id", new ObjectId(id))).first();
+            Document doc = collection.find(Filters.eq("_id", new ObjectId(id))).first(); // Procura o jogo pelo id, cuja o valor informado
             if (doc != null) {
                 Jogo jogo = new Jogo();
                 jogo.setId(doc.getObjectId("_id").toString());
@@ -60,7 +61,7 @@ public class JogoDAO {
 
     public void atualizar(Jogo jogo) {
         try {
-            collection.updateOne(Filters.eq("_id", new ObjectId(jogo.getId())),
+            collection.updateOne(Filters.eq("_id", new ObjectId(jogo.getId())), // Localizar o jogo pelo id
                     Updates.combine(
                             Updates.set("titulo", jogo.getTitulo()),
                             Updates.set("genero", jogo.getGenero()),
@@ -74,7 +75,7 @@ public class JogoDAO {
 
     public void remover(String id) {
         try {
-            collection.deleteOne(Filters.eq("_id", new ObjectId(id)));
+            collection.deleteOne(Filters.eq("_id", new ObjectId(id))); // Deleta o documento que tiver o id igual ao informado.
             System.out.println("Jogo excluído com sucesso (ID: " + id + ")");
         } catch (Exception e) {
             throw new RuntimeException("Erro ao excluir jogo: " + e.getMessage(), e);

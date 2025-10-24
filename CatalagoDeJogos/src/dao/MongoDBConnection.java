@@ -11,6 +11,7 @@ public class MongoDBConnection {
     private MongoClient mongoClient;
     private MongoDatabase database;
     private MongoCollection<Document> collection;
+// Conexão com o MongoDB
 
     public MongoDBConnection() {
         try {

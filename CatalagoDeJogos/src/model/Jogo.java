@@ -9,6 +9,7 @@ package model;
  * @author anail
  */
 public class Jogo {
+// Atributos 
 
     private String id;
     private String titulo;
@@ -27,6 +28,7 @@ public class Jogo {
         this.anoLancamento = anoLancamento;
         this.preco = preco;
     }
+// GETTERS E SETTERS - acessar e modificar os atributos
 
     public String getId() {
         return id;
@@ -67,6 +69,7 @@ public class Jogo {
     public void setPreco(double preco) {
         this.preco = preco;
     }
+// ToString para retorna o jogo em texto.
 
     @Override
     public String toString() {

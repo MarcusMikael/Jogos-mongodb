@@ -40,6 +40,7 @@ public class JogoDAO {
             throw new RuntimeException("Erro ao cadastrar jogo: " + e.getMessage(), e);
         }
     }
+// Buscar jogo
 
     public Jogo buscar(String id) {
         try {
@@ -72,6 +73,7 @@ public class JogoDAO {
             throw new RuntimeException("Erro ao atualizar jogo: " + e.getMessage(), e);
         }
     }
+// remover jogo
 
     public void remover(String id) {
         try {
@@ -81,6 +83,7 @@ public class JogoDAO {
             throw new RuntimeException("Erro ao excluir jogo: " + e.getMessage(), e);
         }
     }
+// listar todos
 
     public String listarTodos() {
         StringJoiner joiner = new StringJoiner("\n");
@@ -100,6 +103,7 @@ public class JogoDAO {
             throw new RuntimeException("Erro ao listar jogos: " + e.getMessage(), e);
         }
     }
+// fechar conexão
 
     public void close() {
         if (conn != null) {
